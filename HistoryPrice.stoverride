@@ -1,0 +1,16 @@
+#!desc=京东比价 
+name: 京东比价
+desc: 京东比价 
+http:
+  mitm:
+    - "api.m.jd.com"
+  script:
+    - match: ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig)
+      name: lishijiage1
+      type: response
+      require-body: true
+      timeout: 10
+script-providers:
+  lishijiage1:
+    url: https://raw.githubusercontent.com/deezertidal/private/main/jdprice.js
+    interval: 86400
